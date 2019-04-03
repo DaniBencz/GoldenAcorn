@@ -1,5 +1,5 @@
 'use strict';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -24,6 +24,7 @@ class SimpleGoldenAcornApp extends React.Component {
     this.state = { acorns: 0 };
     this.buyAcorn = this.buyAcorn.bind(this);
     this.eatAcorn = this.eatAcorn.bind(this);
+    this.keyStroke = this.keyStroke.bind(this);
   };
   render() {
     //console.log(this.props);
@@ -35,6 +36,18 @@ class SimpleGoldenAcornApp extends React.Component {
         <Button change={this.eatAcorn} text="Eat one" />
       </div>
     )
+  };
+  componentDidMount(){
+    window.addEventListener('keydown', this.keyStroke);
+  };
+  keyStroke(e){
+    if(e.keyCode === 38){
+      console.log('up');
+      this.buyAcorn();
+    } else if(e.keyCode === 40){
+      console.log('down');
+      this.eatAcorn();
+    }
   };
   //using => to skip manula binding doesn't work
   buyAcorn(e) {
@@ -49,12 +62,13 @@ class SimpleGoldenAcornApp extends React.Component {
     console.log('state is set');
   };
   eatAcorn(e) {
+    this.setState(prevState => ({ acorns: prevState.acorns - 1 }));
     this.setState({ acorns: this.state.acorns - 1 }, () => { this.myCallback() });
     //prevState is for linear execution
-    this.setState(prevState => ({ acorns: prevState.acorns - 1 }));
     console.log(this.state.acorns);
   };
 };
+
 ReactDOM.render(
   <SimpleGoldenAcornApp />,
   document.getElementById('root'),
