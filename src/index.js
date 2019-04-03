@@ -69,6 +69,11 @@ class SimpleGoldenAcornApp extends React.Component {
   };
 };
 
+Button.propTypes = {
+  change: PropTypes.func,
+  text: PropTypes.string
+};
+
 ReactDOM.render(
   <SimpleGoldenAcornApp />,
   document.getElementById('root'),
