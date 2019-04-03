@@ -6,12 +6,9 @@ import ReactDOM from 'react-dom';
 function Button(props) {
   //destructuring
   const { change, text } = props;
-  //console.log(text);
-  //console.log(props);
   return <button onClick={props.change}>{props.text}</button>;
 };
 function Display(props) {
-  //console.log(props);
   return (
     <div className="counter">
       {props.children}
@@ -27,7 +24,6 @@ class SimpleGoldenAcornApp extends React.Component {
     this.keyStroke = this.keyStroke.bind(this);
   };
   render() {
-    //console.log(this.props);
     return (
       <div className='inner'>
         <Button change={this.buyAcorn} text="Buy one" />
@@ -37,43 +33,38 @@ class SimpleGoldenAcornApp extends React.Component {
       </div>
     )
   };
-  componentDidMount(){
+  componentDidMount() {
     window.addEventListener('keydown', this.keyStroke);
   };
-  keyStroke(e){
-    if(e.keyCode === 38){
+  keyStroke(e) {
+    if (e.keyCode === 38) {
       console.log('up');
       this.buyAcorn();
-    } else if(e.keyCode === 40){
+    } else if (e.keyCode === 40) {
       console.log('down');
       this.eatAcorn();
     }
   };
-  //using => to skip manula binding doesn't work
+  //using => to skip manual binding need further dependencies
   buyAcorn(e) {
-    //console.log(e.target);
-    //console.log(this);
-    //state.acorns++;
-    //the above is 'wrong', below is 'right'
-    this.setState({ acorns: this.state.acorns + 1 }, () => { this.myCallback() });
-    //for that, you need a class
+    this.setState(prevState => ({ acorns: prevState.acorns + 1 }));
   };
   myCallback() {
     console.log('state is set');
   };
   eatAcorn(e) {
-    this.setState(prevState => ({ acorns: prevState.acorns - 1 }));
-    this.setState({ acorns: this.state.acorns - 1 }, () => { this.myCallback() });
-    //prevState is for linear execution
+    if (this.state.acorns > 1) {
+      //prevState is for linear execution
+      this.setState(prevState => ({ acorns: prevState.acorns - 1 }));
+      this.setState({ acorns: this.state.acorns - 1 }, () => { this.myCallback() });
+    }
     console.log(this.state.acorns);
   };
 };
-
 Button.propTypes = {
   change: PropTypes.func,
   text: PropTypes.string
 };
-
 ReactDOM.render(
   <SimpleGoldenAcornApp />,
   document.getElementById('root'),
