@@ -1,32 +1,46 @@
+'use strict';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
-}
-
-let acorns = 0;
-
-let buyAcorn = (e) => {
-  console.log(e.target);
-  acorns--;
+function BuyOne(props) {
+  return <button onClick={props.change}>Buy one</button>;
 };
-
-let eatAcorn = (e) => {
-  console.log(e.target);
-  acorns++;
+function EatOne(props) {
+  return <button onClick={props.change}>Eat one</button>;
 };
+function Display(props) {
+  return <div className="counter">{props.name}</div>;
+};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { acorns: 0 };
+    this.buyAcorn = this.buyAcorn.bind(this);
+    this.eatAcorn = this.eatAcorn.bind(this);
+  }
 
-function App() {
-  return (
-    <div className='inner'>
-      <button onClick={buyAcorn}>Buy one</button>
-      <div className='counter'>
-        {acorns}
+  render() {
+    return (
+      <div className='inner'>
+        <BuyOne change={this.buyAcorn} />
+        <Display name={this.state.acorns} />
+        <EatOne change={this.eatAcorn} />
       </div>
-      <button onClick={eatAcorn}>Eat one</button>
-    </div>
-  );
+    );
+  }
+  buyAcorn(e) {
+    console.log(e.target);
+    console.log(this);
+    //state.acorns++;
+    //the above is 'wrong', below is 'right'
+    this.setState({ acorns: this.state.acorns + 1 });
+    //for that, you need a class
+  };
+
+  eatAcorn (e) {
+    this.setState({ acorns: this.state.acorns - 1 });
+  };
 }
 
 ReactDOM.render(
