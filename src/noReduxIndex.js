@@ -1,14 +1,7 @@
 'use strict';
-//Entry Point
-
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactDOM from 'react-dom';
-//Redux
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import rootReducer from './reducer';
-import { connect } from 'react-redux';
 
 function Button(props) {
   //destructuring
@@ -24,8 +17,8 @@ function Display(props) {
 };
 class SimpleGoldenAcornApp extends React.Component {
   constructor(props) {
-    //deleted state from here
     super(props);
+    this.state = { acorns: 0 };
     this.buyAcorn = this.buyAcorn.bind(this);
     this.eatAcorn = this.eatAcorn.bind(this);
     this.keyStroke = this.keyStroke.bind(this);
@@ -73,9 +66,6 @@ Button.propTypes = {
   text: PropTypes.string
 };
 ReactDOM.render(
-  //Provider for Redux
-  <Provider store={store}>
-    <SimpleGoldenAcornApp />,
-  </Provider>,
+  <SimpleGoldenAcornApp />,
   document.getElementById('root'),
 );
