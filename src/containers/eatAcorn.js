@@ -13,13 +13,13 @@ const mapDispatchToProps = (dispatch) => {
     change: () => {
       dispatch(ateAcorn(1))
     }
-  };
+  }
 };
 
 const EatAcorn = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Button);
-
-//exports to app
-export default EatAcorn;
+  )(Button);
+  
+  //exports to keyDown
+  export default EatAcorn;

@@ -1,7 +1,5 @@
 'use strict';
 //'real' reducer
-//import BuyAcorn from '../containers/buyAcorn';
-//import EatAcorn from '../containers/eatAcorn';
 
 const initState = {
   acorns: 0
@@ -13,7 +11,7 @@ function acornsReducer(state = initState, action) {
       acorns: state.acorns + action.acorn,
       lastAccess: new Date()
     }
-  } else if (action.type === 'DECREASE_ACORNS') {
+  } else if (action.type === 'DECREASE_ACORNS' && state.acorns > 0) {
     return Object.assign({}, state, { acorns: state.acorns - action.acorn })
     //no timestamp here
   }
@@ -21,4 +19,3 @@ function acornsReducer(state = initState, action) {
 }
 //export to reducers
 export default acornsReducer;
-

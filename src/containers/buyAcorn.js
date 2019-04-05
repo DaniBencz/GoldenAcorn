@@ -11,7 +11,7 @@ const mapStateToProps = () => {
 const mapDispatchToProps = (dispatch) => {
   return {
     change: () => {
-      dispatch(boughtAcorn(1));
+      dispatch(boughtAcorn(1))
     }
   };
 };
@@ -21,5 +21,5 @@ const BuyAcorn = connect(
   mapDispatchToProps
 )(Button);
 
-//exports to app
+//exports to keyDown
 export default BuyAcorn;

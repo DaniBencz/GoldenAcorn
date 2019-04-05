@@ -1,10 +1,21 @@
 'use strict';
 
 import React from 'react';
+import { connect } from 'react-redux';
 
 function display(props) {
   return <div className="counter">{props.acorns}</div>;
 };
 
-//exports to dispProps
-export default display;
+const mapStateToProps = (state) => {
+  return {
+    acorns: state.acornsReducer.acorns
+  };
+};
+
+const Display = connect(
+  mapStateToProps,
+)(display);
+
+//exports to keyDown
+export default Display;

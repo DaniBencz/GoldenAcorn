@@ -1,12 +1,11 @@
 'use strict';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 function Button(props) {
   //destructuring
   const { change, text } = props;
-  return <button onClick={props.change}>{props.text}</button>;
+  return <button onClick={change}>{text}</button>;
 };
 function Display(props) {
   return (

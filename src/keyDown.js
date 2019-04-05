@@ -1,42 +1,20 @@
 'use strict';
-import { connect } from 'react-redux';
 import React from 'react';
 import BuyAcorn from './containers/buyAcorn';
 import EatAcorn from './containers/eatAcorn';
-import Display from './containers/dispProps';
+import Display from './containers/display';
+import store from './store';
+import { boughtAcorn } from './actions';
+import { ateAcorn } from './actions';
+import KeyEventRegister from './keyRegister';
 
-const content = (props) => (
+const content = () => (
   <div className='inner'>
+    <KeyEventRegister buy={() => {store.dispatch(boughtAcorn(1))}} eat={() => {store.dispatch(ateAcorn(1))}} /> 
     <BuyAcorn />
     <Display>
     </Display>
     <EatAcorn />
   </div>
 );
-
-function componentDidMount() {
-  window.addEventListener('keydown', keyStroke);
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    change: () => {
-      dispatch(boughtAcorn(1));
-    }
-  };
-};
-
-function keyStroke(e) {
-  if (e.keyCode === 38) {
-    console.log('up');
-  } else if (e.keyCode === 40) {
-    console.log('down');
-  }
-};
-
-const Content = connect(
-  componentDidMount,
-  keyStroke
-  )(content);
-
-export default Content;
+export default content;

@@ -6,5 +6,5 @@ import rootReducer from './reducers/reducers';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
-//exports to index
+//exports to keydown
 export default store;
