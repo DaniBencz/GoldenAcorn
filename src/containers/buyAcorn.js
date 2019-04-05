@@ -4,7 +4,7 @@ import Button from './button';
 
 const mapStateToProps = () => {
   return {
-    value: 'Buy one',
+    value: 'Buy one'
   };
 };
 
@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     change: () => {
       dispatch(boughtAcorn(1));
-    },
+    }
   };
 };
 

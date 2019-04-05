@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import { ateAcorn } from '../actions';
 import Button from './button';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = () => {
   return {
-    value: 'Eat one',
+    value: 'Eat one'
   };
 };
 

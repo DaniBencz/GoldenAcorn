@@ -3,11 +3,7 @@
 import React from 'react';
 
 function display(props) {
-  return (
-    <div className="counter">
-      {props.children}
-    </div>
-  );
+  return <div className="counter">{props.acorns}</div>;
 };
 
 //exports to dispProps

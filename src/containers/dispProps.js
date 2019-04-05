@@ -3,12 +3,11 @@ import display from './display';
 
 //needs work!!
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
   return {
-    //children?
+    acorns: state.acornsReducer.acorns
   };
 };
-
 
 const Display = connect(
   mapStateToProps,

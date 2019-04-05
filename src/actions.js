@@ -14,5 +14,5 @@ function ateAcorn(value) {
   }
 }
 
-//exports to?
+//exports to buyAcorn, eatAcorn
 export { boughtAcorn, ateAcorn }
