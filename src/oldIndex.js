@@ -10,26 +10,22 @@ function EatOne(props) {
 function Display(props) {
   return <div className="counter">{props.name}</div>;
 }
-
 let state = {
   "acorns": 0
 };
-
 let buyAcorn = (e) => {
   console.log(e.target);
-  //state.acorns++;
+  state.acorns++;
   //the above is 'wrong', below is 'right'
-  setState({acorns: state.acorns + 1});
-  //for that, you need a class
+  //setState({acorns: state.acorns + 1});
+  //but, for that, you need a class
   console.log(state.acorns);
 };
-
 let eatAcorn = (e) => {
   console.log(e.target);
   state.acorns--;
   console.log(state.acorns);
 };
-
 function App() {
   return (
     <div className='inner'>
@@ -39,8 +35,4 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root'),
-);
+export default App;

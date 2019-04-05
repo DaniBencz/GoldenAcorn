@@ -15,7 +15,7 @@ function Display(props) {
     </div>
   );
 };
-class SimpleGoldenAcornApp extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { acorns: 0 };
@@ -65,7 +65,4 @@ Button.propTypes = {
   change: PropTypes.func,
   text: PropTypes.string
 };
-ReactDOM.render(
-  <SimpleGoldenAcornApp />,
-  document.getElementById('root'),
-);
+export default App;

@@ -1,9 +1,10 @@
 'use strict';
 import { combineReducers } from 'redux';
-import acorns from './acorns';
+import acornsReducer from './acorns';
+console.log(acornsReducer);
 
 const rootReducer = combineReducers({
-  acorns,
+  acornsReducer
 });
 
 //exports to store

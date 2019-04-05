@@ -1,19 +1,18 @@
 'use strict';
 
-function incrAcorn(value) {
+//'actions must be plain objects'
+function boughtAcorn(value) {
   return {
     type: 'INCREASE_ACORNS',
     acorn: value
   }
 }
-function decrAcorn(value) {
+function ateAcorn(value) {
   return {
     type: 'DECREASE_ACORNS',
     acorn: value
   }
 }
 
-//?
 //exports to?
-export default { incrAcorn, decrAcorn }
-module.exports = { incrAcorn };
+export { boughtAcorn, ateAcorn }
