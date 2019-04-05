@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import display from './display';
 
-//needs work!!
-
 const mapStateToProps = (state) => {
   return {
     acorns: state.acornsReducer.acorns
