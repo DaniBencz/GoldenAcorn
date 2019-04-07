@@ -14,7 +14,7 @@ function Display(props) {
     </div>
   );
 };
-class App extends React.Component {
+class noRedux extends React.Component {
   constructor(props) {
     super(props);
     this.state = { acorns: 0 };
@@ -64,4 +64,4 @@ Button.propTypes = {
   change: PropTypes.func,
   text: PropTypes.string
 };
-export default App;
+export default noRedux;

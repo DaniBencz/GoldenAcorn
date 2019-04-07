@@ -10,7 +10,7 @@ import KeyEventRegister from './keyRegister';
 
 const content = () => (
   <div className='inner'>
-    <KeyEventRegister buy={() => {store.dispatch(boughtAcorn(1))}} eat={() => {store.dispatch(ateAcorn(1))}} /> 
+    {/* <KeyEventRegister buy={() => {store.dispatch(boughtAcorn(1))}} eat={() => {store.dispatch(ateAcorn(1))}} />  */}
     <BuyAcorn />
     <Display>
     </Display>

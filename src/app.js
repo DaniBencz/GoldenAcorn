@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 /*import BuyAcorn from './containers/buyAcorn';
 import EatAcorn from './containers/eatAcorn';
@@ -13,12 +14,19 @@ const App = (props) => (
   </div>
 );*/
 
-import Content from './keyDown';
+import Content from './reduxApp';
+import noRedux from './noReduxApp';
 
-const App = (props) => (
+const App = () => (
+  <BrowserRouter>
+    <Route path="/" component={Content} />
+  </BrowserRouter>
+);
+
+/* const App = (props) => (
   <div className='wrapper'>
     <Content />
   </div>
-);
+); */
 
 export default App;
