@@ -14,7 +14,7 @@ function Display(props) {
     </div>
   );
 };
-class noRedux extends React.Component {
+class NoRedux extends React.Component {
   constructor(props) {
     super(props);
     this.state = { acorns: 0 };
@@ -25,6 +25,7 @@ class noRedux extends React.Component {
   render() {
     return (
       <div className='inner'>
+        <p>State App</p>
         <Button change={this.buyAcorn} text="Buy one" />
         {/* containment */}
         <Display>{this.state.acorns}</Display>
@@ -64,4 +65,4 @@ Button.propTypes = {
   change: PropTypes.func,
   text: PropTypes.string
 };
-export default noRedux;
+export default NoRedux;

@@ -17,5 +17,5 @@ const Display = connect(
   mapStateToProps,
 )(display);
 
-//exports to keyDown
+//exports to reduxApp
 export default Display;

@@ -21,5 +21,5 @@ const EatAcorn = connect(
   mapDispatchToProps
   )(Button);
   
-  //exports to keyDown
+  //exports to reduxApp
   export default EatAcorn;

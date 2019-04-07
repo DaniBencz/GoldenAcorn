@@ -1,30 +1,35 @@
 'use strict';
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-/*import BuyAcorn from './containers/buyAcorn';
-import EatAcorn from './containers/eatAcorn';
-import Display from './containers/dispProps';
-
-const App = (props) => (
-  <div className='inner'>
-    <BuyAcorn />
-    <Display />
-    <EatAcorn />
+const Error = () => (
+  <div>
+    <p>Error: path does not exist!</p>
   </div>
-);*/
+);
 
-import Content from './reduxApp';
-import noRedux from './noReduxApp';
+import Hello from './components/home'
+import Content from './components/reduxApp';
+import NoRedux from './components/noReduxApp';
+import Navigation from './components/navigation';
 
 const App = () => (
   <BrowserRouter>
-    <Route path="/" component={Content} />
+    <div>
+      <Navigation />
+      <Switch>
+        <Route path="/" component={Hello} exact />
+        <Route path="/redux" component={Content} />
+        <Route path="/states" component={NoRedux} />
+        <Route component={Error} />
+      </Switch>
+    </div>
   </BrowserRouter>
 );
 
 /* const App = (props) => (
   <div className='wrapper'>
+    <NoRedux />
     <Content />
   </div>
 ); */
