@@ -54,11 +54,11 @@ class NoRedux extends React.Component {
   };
   eatAcorn(e) {
     if (this.state.acorns > 1) {
+      //this.setState({ acorns: this.state.acorns - 1 }, () => { this.myCallback() });
       //prevState is for linear execution
       this.setState(prevState => ({ acorns: prevState.acorns - 1 }));
-      this.setState({ acorns: this.state.acorns - 1 }, () => { this.myCallback() });
     }
-    console.log(this.state.acorns);
+    //console.log(this.state.acorns);
   };
 };
 Button.propTypes = {

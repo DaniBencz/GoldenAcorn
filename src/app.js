@@ -14,24 +14,15 @@ import NoRedux from './components/noReduxApp';
 import Navigation from './components/navigation';
 
 const App = () => (
-  <BrowserRouter>
-    <div>
-      <Navigation />
-      <Switch>
-        <Route path="/" component={Hello} exact />
-        <Route path="/redux" component={Content} />
-        <Route path="/states" component={NoRedux} />
-        <Route component={Error} />
-      </Switch>
-    </div>
-  </BrowserRouter>
-);
-
-/* const App = (props) => (
-  <div className='wrapper'>
-    <NoRedux />
-    <Content />
+  <div>
+    <Navigation />
+    <Switch>
+      <Route path="/" component={Hello} exact />
+      <Route path="/redux" component={Content} />
+      <Route path="/states" component={NoRedux} />
+      <Route component={Error} />
+    </Switch>
   </div>
-); */
+);
 
 export default App;

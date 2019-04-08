@@ -1,8 +1,12 @@
 'use strict';
 import React from 'react';
+import store from './store';
+import { boughtAcorn } from './actions';
+import { ateAcorn } from './actions';
 
 class KeyEventRegister extends React.Component {
-  constructor(){
+  constructor(props){
+    super(props);
     this.keyStroke = this.keyStroke.bind(this);
   }
   render() {
@@ -11,6 +15,10 @@ class KeyEventRegister extends React.Component {
   componentDidMount() {
     window.addEventListener('keydown', this.keyStroke);
   };
+  componentWillUnmount(){
+    console.log('keyStroke() unmounted');
+    window.removeEventListener('keydown', this.keyStroke);
+  }
   keyStroke(e) {
     if (e.keyCode === 38) {
       store.dispatch(boughtAcorn(1));
@@ -20,5 +28,5 @@ class KeyEventRegister extends React.Component {
   };
 };
 
-//exports to keyDown
+//exports to reduxApp
 export default KeyEventRegister
