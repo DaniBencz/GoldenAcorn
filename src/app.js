@@ -24,5 +24,5 @@ const App = () => (
     </Switch>
   </div>
 );
-
+//exports to index
 export default App;

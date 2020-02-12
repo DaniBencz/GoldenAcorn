@@ -15,4 +15,5 @@ const Content = () => (
     <EatAcorn />
   </div>
 );
+//exports to app
 export default Content;
